@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eid Mubarak 2026 — Mockup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #C8972A;
+      --gold-light: #F0C040;
+      --dark: #0A0A1A;
+      --teal: #0D2B2E;
+      --cream: #FDF6E3;
+      --muted: rgba(253,246,227,0.55);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(200,151,42,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── STARS ── */
+    #stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold-light);
+      animation: twinkle ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.3); }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, #0D3535 0%, var(--dark) 70%);
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-label::before, .hero-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .arabic {
+      font-family: 'Amiri', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--gold-light);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      text-shadow: 0 0 40px rgba(240,192,64,0.3);
+    }
+
+    .english {
+      font-family: 'Amiri', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      color: var(--cream);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 48px;
+      font-weight: 300;
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 32px 40px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 40px;
+      box-shadow: 0 0 60px rgba(200,151,42,0.08);
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .count-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .count-box {
+      background: rgba(200,151,42,0.08);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      width: 80px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Amiri', serif;
+      font-size: 2.4rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .count-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .count-name {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .count-sep {
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 20px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #e8aa30);
+      color: #0A0A1A;
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 30px rgba(200,151,42,0.35);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(200,151,42,0.5);
+    }
+
+    /* Floating decorations */
+    .deco {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.06;
+      font-size: 8rem;
+      animation: floatDeco ease-in-out infinite;
+    }
+
+    @keyframes floatDeco {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .deco-1 { top: 10%; left: 5%; animation-duration: 8s; font-size: 6rem; }
+    .deco-2 { top: 20%; right: 8%; animation-duration: 10s; font-size: 5rem; }
+    .deco-3 { bottom: 20%; left: 8%; animation-duration: 9s; font-size: 7rem; }
+    .deco-4 { bottom: 15%; right: 5%; animation-duration: 11s; font-size: 5rem; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px 0;
+      background: linear-gradient(90deg, transparent, rgba(200,151,42,0.15), transparent);
+    }
+
+    .divider span { font-size: 1rem; color: var(--gold); opacity: 0.6; }
+
+    /* ── WISHES ── */
+    .wishes {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      background: linear-gradient(180deg, var(--dark) 0%, #0a1520 100%);
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 48px;
+    }
+
+    .wishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .wish-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .wish-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .wish-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(200,151,42,0.1);
+    }
+
+    .wish-emoji { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+
+    .wish-text {
+      font-family: 'Amiri', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .wish-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      direction: rtl;
+    }
+
+    /* ── PATTERN BANNER ── */
+    .pattern-banner {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #0D2B2E, #0A1A1A);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 60px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .pattern-banner::before {
+      content: '🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙';
+      position: absolute;
+      top: 12px; left: 0; right: 0;
+      font-size: 1.2rem;
+      opacity: 0.08;
+      letter-spacing: 8px;
+    }
+
+    .pattern-banner::after {
+      content: '🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙 ✦ ☪️ ✦ 🌙';
+      position: absolute;
+      bottom: 12px; left: 0; right: 0;
+      font-size: 1.2rem;
+      opacity: 0.08;
+      letter-spacing: 8px;
+    }
+
+    .banner-quote {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-style: italic;
+      color: var(--cream);
+      max-width: 700px;
+      margin: 0 auto 12px;
+      line-height: 1.6;
+    }
+
+    .banner-attr {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--dark);
+      border-top: 1px solid var(--card-border);
+    }
+
+    .footer-icons { font-size: 1.8rem; letter-spacing: 10px; margin-bottom: 14px; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+    .footer-title {
+      font-family: 'Amiri', serif;
+      font-size: 1.4rem;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    footer p { color: var(--muted); font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Stars -->
+  <div id="stars"></div>
+
+  <!-- Floating decorations -->
+  <span class="deco deco-1">🕌</span>
+  <span class="deco deco-2">🌙</span>
+  <span class="deco deco-3">⭐</span>
+  <span class="deco deco-4">🕌</span>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Eid Mubarak 2026</div>
+    <div class="arabic">عيد مبارك</div>
+    <div class="english">Eid Mubarak</div>
+    <p class="hero-sub">May this blessed occasion bring joy, peace, and countless blessings to you and your loved ones.</p>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap">
+      <div class="countdown-label">🌙 Eid is in</div>
+      <div class="countdown">
+        <div class="count-unit">
+          <div class="count-box" id="days">00</div>
+          <div class="count-name">Days</div>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-unit">
+          <div class="count-box" id="hours">00</div>
+          <div class="count-name">Hours</div>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-unit">
+          <div class="count-box" id="minutes">00</div>
+          <div class="count-name">Mins</div>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-unit">
+          <div class="count-box" id="seconds">00</div>
+          <div class="count-name">Secs</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#wishes" class="hero-cta">Send Eid Wishes 💌</a>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <span>✦</span><span>🌙</span><span>✦</span><span>☪️</span><span>✦</span><span>🌙</span><span>✦</span>
+  </div>
+
+  <!-- WISHES -->
+  <section class="wishes" id="wishes">
+    <p class="section-label">Share the Joy</p>
+    <h2 class="section-title">Eid Wishes & Blessings</h2>
+    <div class="wishes-grid">
+      <div class="wish-card">
+        <span class="wish-emoji">🌙</span>
+        <p class="wish-text">"May Allah's blessings be with you today and always. Wishing you a joyful Eid filled with love."</p>
+        <div class="wish-arabic">تقبل الله منا ومنكم</div>
+      </div>
+      <div class="wish-card">
+        <span class="wish-emoji">⭐</span>
+        <p class="wish-text">"May this Eid bring happiness to your heart and home. Eid Mubarak to you and your family."</p>
+        <div class="wish-arabic">عيد سعيد وكل عام وأنتم بخير</div>
+      </div>
+      <div class="wish-card">
+        <span class="wish-emoji">🕌</span>
+        <p class="wish-text">"Peace, mercy, and blessings be upon you this Eid. May all your prayers be answered."</p>
+        <div class="wish-arabic">أعاده الله علينا وعليكم باليمن والبركات</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATTERN BANNER -->
+  <div class="pattern-banner">
+    <p class="banner-quote">"On this blessed day, may Allah accept our prayers, forgive our sins, and fill our hearts with gratitude."</p>
+    <p class="banner-attr">Eid ul-Fitr 2026</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">🌙 ✦ ☪️</div>
+    <div class="footer-title">عيد مبارك · Eid Mubarak</div>
+    <p>From our family to yours · 2026</p>
+  </footer>
+
+  <script>
+    // Stars
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 0.5;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${Math.random()*100}%;
+        left:${Math.random()*100}%;
+        animation-duration:${Math.random()*4+2}s;
+        animation-delay:${Math.random()*5}s;
+      `;
+      starsEl.appendChild(s);
+    }
+
+    // Countdown — set Eid date here
+    const eidDate = new Date('2026-03-30T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eidDate - now;
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const s = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('days').textContent = String(d).padStart(2,'0');
+      document.getElementById('hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+      document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
